@@ -97,7 +97,7 @@ def vis():
         st.plotly_chart(fig, use_container_width=True)
 
         cor = d.get_corrcoef(score, x_label, y_label)
-        st.write('相関係数：' + str(cor))
+        st.write('相関係数（ここを追加したい。）：' + str(cor))
 
     # ヒストグラム
     elif graph == "ヒストグラム":
