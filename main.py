@@ -104,11 +104,11 @@ def vis():
 
         #女子だけの相関係数を表示
         df = load_full_data()
-        filtered_df = d.load_filtered_data(df, "女子")
+        filtered_data = df[df['性別'].isin(["女"])]
         rows = ['学年', '性別']
-        score_f = filtered_df.drop(rows, axis=1)
-        cor_f = d.get_corrcoef(score_f, x_label, y_label)
-        st.write('相関係数（女子のみ）：' + str(cor_f))
+        score = filtered_df.drop(rows, axis=1)
+        cor = d.get_corrcoef(score, x_label, y_label)
+        st.write('相関係数（女子のみ）：' + str(cor))
 
         #男子だけの相関係数を表示
         df = load_full_data()
@@ -116,7 +116,7 @@ def vis():
         rows = ['学年', '性別']
         score_m = filtered_df.drop(rows, axis=1)
         cor_m = d.get_corrcoef(score_m, x_label, y_label)
-        st.write('相関係数（女子のみ）：' + str(cor_m))
+        st.write('相関係数（男子のみ）：' + str(cor_m))
 
 
 
