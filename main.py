@@ -98,6 +98,9 @@ def vis():
 
         cor = d.get_corrcoef(score, x_label, y_label)
         st.write('相関係数（ここを追加したい。）：' + str(cor))
+        filtered_df = d.load_filtered_data(df, "女子")
+        st.write('相関係数（タイプ2女子データ）：' + filtered_df)
+
 
     # ヒストグラム
     elif graph == "ヒストグラム":
@@ -137,7 +140,6 @@ def  lr():
     # タイプ 2: 女子のみのデータ
     elif df_type == "タイプ 2":
         filtered_df = d.load_filtered_data(df, "女子")
-        st.write('相関係数（タイプ2女子データ）：' + filtered_df)
     # タイプ 3: 高1女子のみのデータ
     else:
         filtered_df = d.load_filtered_data(df, "高1女子")
