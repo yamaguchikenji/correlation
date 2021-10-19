@@ -104,7 +104,7 @@ def vis():
 
         #女子だけの相関係数を表示
         df = load_full_data()
-        filtered_data = df[df['性別'].isin(["女"])]
+        filtered_df = df[df['性別'].isin(["女"])]
         rows = ['学年', '性別']
         score = filtered_df.drop(rows, axis=1)
         cor = d.get_corrcoef(score, x_label, y_label)
