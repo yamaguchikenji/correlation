@@ -110,9 +110,9 @@ def vis():
         df = load_full_data()
         filtered_df = d.load_filtered_data(df, "女子")
         rows = ['学年', '性別']
-        score = filtered_df.drop(rows, axis=1)
-        cor = d.get_corrcoef(score, x_label, y_label)
-        st.write('相関係数（女子のみ）：' + str(cor))
+        score_f = filtered_df.drop(rows, axis=1)
+        cor_f = d.get_corrcoef(score_f, x_label, y_label)
+        st.write('相関係数（女子のみ）：' + str(cor_f))
 
 
 
