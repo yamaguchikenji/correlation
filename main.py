@@ -82,6 +82,7 @@ def vis():
             color="学年"
             )   
         elif coloring == "性別":
+#            filtered_df = d.load_filtered_data(df, "女子")
             fig = px.scatter(
                 full_data,
                 x=x_label,
@@ -98,8 +99,8 @@ def vis():
 
         cor = d.get_corrcoef(score, x_label, y_label)
         st.write('相関係数（ここを追加したい。）：' + str(cor))
-        filtered_df = d.load_filtered_data(df, "女子")
-        st.write('相関係数（タイプ2女子データ）：' + filtered_df)
+#        filtered_df = d.load_filtered_data(df, "女子")
+#        st.write('相関係数（タイプ2女子データ）：' + filtered_df)
 
 
     # ヒストグラム
