@@ -102,7 +102,15 @@ def vis():
         cor = d.get_corrcoef(score, x_label, y_label)
         st.write('相関係数（全属性）：' + str(cor))
 
-        #女子だけの相関係数を表示
+        #高1のみの相関係数を表示
+        df = load_full_data()
+        filtered_df = df[df['学年'].isin(["高1"])]
+        rows = ['学年', '性別']
+        score = filtered_df.drop(rows, axis=1)
+        cor = d.get_corrcoef(score, x_label, y_label)
+        st.write('相関係数（高1のみ）：' + str(cor))
+
+        #女子のみの相関係数を表示
         df = load_full_data()
         filtered_df = df[df['性別'].isin(["女"])]
         rows = ['学年', '性別']
@@ -110,15 +118,15 @@ def vis():
         cor = d.get_corrcoef(score, x_label, y_label)
         st.write('相関係数（女子のみ）：' + str(cor))
 
-        #男子だけの相関係数を表示
-#        df = load_full_data()
-#        filtered_df = d.load_filtered_data(df, "男子")
-#        rows = ['学年', '性別']
-#        score_m = filtered_df.drop(rows, axis=1)
-#        cor_m = d.get_corrcoef(score_m, x_label, y_label)
-#        st.write('相関係数（男子のみ）：' + str(cor_m))
-
-
+        #高1年女子だけの相関係数を表示
+        df = load_full_data()
+        filtered_df = df[df['学年'].isin(["高1"])]
+        filtered_df = filtered_df[filtered_df['性別'].isin(["女"])]
+        rows = ['学年', '性別']
+        score = filtered_df.drop(rows, axis=1)
+        cor = d.get_corrcoef(score, x_label, y_label)
+        st.write('相関係数（高1女子のみ）：' + str(cor))
+        
 
     # ヒストグラム
     elif graph == "ヒストグラム":
