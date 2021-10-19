@@ -85,7 +85,7 @@ def vis():
             filtered_df = d.load_filtered_data(df, "女子")
             fig = px.scatter(
 #                full_data,
-                filtered_df
+                filtered_df,
                 x=x_label,
                 y=y_label,
                 color="性別",
