@@ -100,7 +100,7 @@ def vis():
         st.plotly_chart(fig, use_container_width=True)
 
         cor = d.get_corrcoef(score, x_label, y_label)
-        st.write('相関係数（ここを追加したい。）：' + str(cor))
+        st.write('相関係数（全属性）：' + str(cor))
 
 #        score = load_num_data()
 #        df = load_full_data()
@@ -110,9 +110,10 @@ def vis():
         df = load_full_data()
         filtered_df = d.load_filtered_data(df, "女子")
         rows = ['学年', '性別']
-        score2 = filtered_df.drop(rows, axis=1)
-        cor2 = d.get_corrcoef(score2, x_label, y_label)
-        st.write('相関係数（ここを追加したい。）：' + str(cor2))
+        score = filtered_df.drop(rows, axis=1)
+        cor = d.get_corrcoef(score, x_label, y_label)
+        st.write('相関係数（女子のみ）：' + str(cor))
+
 
 
 
