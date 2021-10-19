@@ -82,9 +82,10 @@ def vis():
             color="学年"
             )   
         elif coloring == "性別":
-#            filtered_df = d.load_filtered_data(df, "女子")
+            filtered_df = d.load_filtered_data(df, "女子")
             fig = px.scatter(
-                full_data,
+#                full_data,
+                filtered_df
                 x=x_label,
                 y=y_label,
                 color="性別",
