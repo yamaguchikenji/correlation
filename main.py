@@ -86,7 +86,7 @@ def vis():
 #            filtered_df = d.load_filtered_data(df, "女子")
             fig = px.scatter(
                 full_data,
-                filtered_df,
+#                filtered_df,
                 x=x_label,
                 y=y_label,
                 color="性別",
@@ -101,20 +101,19 @@ def vis():
 
         cor = d.get_corrcoef(score, x_label, y_label)
         st.write('相関係数（ここを追加したい。）：' + str(cor))
-        st.write('相関係数（ここを追加したい。）：' + str(cor))
-
-
-
-
-
 
 #        score = load_num_data()
-
-
-
-
+#        df = load_full_data()
 #        filtered_df = d.load_filtered_data(df, "女子")
 #        st.write('相関係数（タイプ2女子データ）：' + filtered_df)
+#        score2 = load_num_data()
+        df = load_full_data()
+        filtered_df = d.load_filtered_data(df, "女子")
+        rows = ['学年', '性別']
+        score2 = filtered_df.drop(rows, axis=1)
+        cor2 = d.get_corrcoef(score2, x_label, y_label)
+        st.write('相関係数（ここを追加したい。）：' + str(cor2))
+
 
 
     # ヒストグラム
